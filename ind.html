@@ -1,1 +1,722 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shourya Associates Pvt. Ltd.</title>
+
+  <style>
+    :root {
+      --primary: #444d62;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Segoe UI, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, .85);
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark);
+      position: relative;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      left: 0;
+      bottom: -6px;
+      transition: .3s;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .call-btn {
+      padding: 10px 18px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .call-btn:hover {
+      background: #1e40af
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .slide.active {
+      opacity: 1
+    }
+
+    .hero-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 0, 0, .75), rgba(0, 0, 0, .4));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: auto;
+      padding: 120px 20px 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      margin-bottom: 20px
+    }
+
+    .hero-content p {
+      max-width: 650px;
+      font-size: 18px;
+      color: #e5e7eb
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--dark)
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, .5);
+      border-radius: 50%;
+      cursor: pointer
+    }
+
+    .dot.active {
+      background: #fff
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 80px 20px
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px
+    }
+
+    /* ================= STATS STRIP ================= */
+    .stats-strip {
+      background: var(--primary);
+      color: #fff;
+      padding: 60px 20px;
+    }
+
+    .stats-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      text-align: center;
+      gap: 30px;
+    }
+
+    .stat h2 {
+      font-size: 40px
+    }
+
+    .stat p {
+      margin-top: 10px;
+      font-weight: 600
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      border: none
+    }
+
+    /* ================= FAQ ================= */
+    .faq-item {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+      cursor: pointer;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 10px
+    }
+
+    .faq-answer {
+      display: none;
+      color: var(--gray)
+    }
+
+    /* ================= GALLERY ================= */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05)
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px
+    }
+
+    .close,
+    .prev,
+    .next {
+      position: absolute;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    .close {
+      top: 20px;
+      right: 30px
+    }
+
+    .prev {
+      left: 30px
+    }
+
+    .next {
+      right: 30px
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      background: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      padding: 80px 20px;
+    }
+
+    .footer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .85);
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer h3 {
+      margin-bottom: 15px
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px
+    }
+
+    .social-icons span {
+      margin-right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      color: #ccc;
+    }
+
+    @media(max-width:768px) {
+      .nav ul {
+        display: none
+      }
+
+      .hero-content h1 {
+        font-size: 32px
+      }
+    }
+
+    /* ================= GALLERY ================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gallery img:hover { transform: scale(1.05); }
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+.close, .prev, .next {
+  position: absolute;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close { top: 20px; right: 30px; }
+.prev { left: 30px; }
+.next { right: 30px; }
+
+
+section { padding: 70px 0px; }
+.container { max-width: 1200px; margin: auto; }
+h2 { text-align: center; margin-bottom: 20px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: .3s;
+}
+
+.card:hover { transform: translateY(-6px); }
+.stars { color: #fbbf24; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav">
+      <div class="logo">Shourya Associates</div>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#stats">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:+919091010909" class="call-btn" style="color: #fff;">Call Now</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="slide active" style="background-image:url('assets/one.jpeg')"></div>
+    <div class="slide" style="background-image:url('assets/three.jpeg')"></div>
+    <div class="slide" style="background-image:url('assets/two.jpeg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Shourya Associates Pvt. Ltd.</h1>
+      <p>Trusted Plot & Property Consultants in Greater Noida & YEIDA.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Free Consultation</a>
+        <a href="tel:+919091010909" class="btn btn-light">Call Now</a>
+      </div>
+    </div>
+    <div class="slider-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-strip" id="stats">
+    <div class="stats-container">
+      <div class="stat">
+        <h2 class="counter" data-target="90">0</h2>
+        <p>Complete Projects</p>
+      </div>
+      <div class="stat">
+        <h2 class="counter" data-target="30">0</h2>
+        <p>Team Members</p>
+      </div>
+      <div class="stat">
+        <h2 class="counter" data-target="10">0</h2>
+        <p>Client Reviews</p>
+      </div>
+      <div class="stat">
+        <h2 class="counter" data-target="15">0</h2>
+        <p>Winning Awards</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+<section id="reviews">
+<div class="container">
+<h2>Customer Reviews</h2>
+<div class="grid">
+  <div class="card">
+    <div class="stars">★★★★★</div>
+    <p>Professional and trustworthy service.</p>
+    <strong>– Aryan S</strong>
+  </div>
+  <div class="card">
+    <div class="stars">★★★★★</div>
+    <p>Smooth and transparent experience.</p>
+    <strong>– Vivek D</strong>
+  </div>
+  <div class="card">
+    <div class="stars">★★★★★</div>
+    <p>Highly recommended real estate firm.</p>
+    <strong>– Paras</strong>
+  </div>
+</div>
+</div>
+</section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h4>Is YEIDA plot safe for investment?</h4>
+        <div class="faq-answer">Yes, YEIDA plots are government approved and offer strong future growth potential.</div>
+      </div>
+
+      <div class="faq-item">
+        <h4>What documents are required to buy a plot?</h4>
+        <div class="faq-answer">You need ID proof, address proof, booking amount, and authority allotment letter
+          verification.</div>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I resell my plot after purchase?</h4>
+        <div class="faq-answer">Yes, resale is allowed after lock-in period as per authority rules.</div>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do you provide legal verification?</h4>
+        <div class="faq-answer">Yes, we provide complete legal documentation support and verification.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="assets/one.jpeg">
+      <img src="assets/two.jpeg">
+      <img src="assets/three.jpeg">
+      <img src="assets/two.jpeg">
+      <img src="assets/four.jpeg">
+      <img src="assets/one.jpeg">
+      <img src="assets/one.jpeg">
+      <img src="assets/two.jpeg">
+      <img src="assets/three.jpeg">
+      <img src="assets/four.jpeg">
+      <img src="assets/three.jpeg">
+      <img src="assets/two.jpeg">
+      <img src="assets/one.jpeg">
+      <img src="assets/four.jpeg">
+      <img src="assets/two.jpeg">
+    </div>
+    </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <span class="close">&times;</span>
+      <span class="prev">&#10094;</span>
+      <img id="modalImg">
+      <span class="next">&#10095;</span>
+    </div>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Information</h2>
+      <div class="contact">
+        <div class="contact-box">
+          <p><strong>Phone:</strong> +91 870 008 8376</p>
+          <p><strong>Address:</strong> Greater Noida – 201308</p>
+          <p><strong>Email:</strong> info@shouryaassociates.com</p>
+        </div>
+        <iframe src="https://www.google.com/maps?q=Greater%20Noida&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <div>
+        <h3>Shourya Associates</h3>
+        <p>Leading Plot & Real Estate Consultants.</p>
+        <div class="social-icons">
+          <span>📘</span><span>📷</span><span>💼</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#">About Us</a>
+        <a href="#">Projects</a>
+        <a href="#">Services</a>
+        <a href="#">Gallery</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div>
+        <h3>Registered Office</h3>
+        <p>Flat No 101, Noida , Up, India</p>
+        <p>+91 870 008 837</p>
+        <p>Email: info@email.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Shourya Associates Pvt. Ltd.
+    </div>
+  </div>
+
+  <script>
+    /* HERO */
+    let slides = document.querySelectorAll(".slide");
+    let dots = document.querySelectorAll(".dot");
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
+    }, 5000);
+
+    /* COUNTER */
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / speed;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + inc);
+          setTimeout(update, 10);
+        } else {
+          counter.innerText = target + "+";
+        }
+      }
+      update();
+    });
+
+    /* FAQ */
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.addEventListener("click", () => {
+        let answer = item.querySelector(".faq-answer");
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+      });
+    });
+
+/* GALLERY MODAL */
+const images = document.querySelectorAll(".gallery img");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+let index = 0;
+
+images.forEach((img, i) => {
+  img.onclick = () => {
+    index = i;
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  };
+});
+
+document.querySelector(".close").onclick = () => modal.style.display = "none";
+document.querySelector(".prev").onclick = () => show(-1);
+document.querySelector(".next").onclick = () => show(1);
+
+function show(step) {
+  index = (index + step + images.length) % images.length;
+  modalImg.src = images[index].src;
+}
+  </script>
+
+</body>
+
+</html>
