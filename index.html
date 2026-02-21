@@ -1,73 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Website Under Development</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shourya Associates Pvt. Ltd.</title>
 
-        .container {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
 
-        h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
 
-        p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .loader {
-            margin: 20px auto;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
+    body {
+      background: var(--bg);
+      color: var(--dark);
+    }
 
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
+    /* ===== NAVBAR ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-    </style>
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      left: 0;
+      bottom: -6px;
+      transition: 0.3s;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .call {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: #eef2ff;
+      text-align: center;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 15px auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+
+    /* ===== REVIEWS ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .stars {
+      color: #fbbf24;
+      margin-bottom: 10px;
+    }
+
+    /* ===== BLOG ===== */
+    .blog img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      color: var(--gray);
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* ===== MOBILE ===== */
+    @media(max-width: 768px) {
+      .nav ul {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Shaurya Associates</h2>
-        <h1>🚧 Website Under Development</h1>
-        <div class="loader"></div>
-        <p>We're working hard to launch our website.</p>
-        <p>Please check back soon!</p>
-        <div class="footer">
-            © 2026 www.shauryaassociates.in
-        </div>
+
+<header>
+  <nav class="nav">
+    <div class="logo">Shourya Associates</div>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="call">📞 +91 90910 10909</div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <h1>Shourya Associates PRIVATE LIMITED</h1>
+    <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    <a href="tel:+919091010909" class="btn">Call Us</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <h2>Customer Reviews</h2>
+
+    <div class="grid">
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>Very professional and trustworthy. Smooth process from start to end.</p>
+        <strong>– Aryan S</strong>
+      </div>
+
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>Excellent guidance and transparent communication throughout.</p>
+        <strong>– Vivek D</strong>
+      </div>
+
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>Best real estate experience in YEIDA. Highly recommended.</p>
+        <strong>– Paras</strong>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <h2>Blog</h2>
+
+    <div class="grid">
+      <div class="card blog">
+        <img src="https://source.unsplash.com/600x400/?office" />
+        <h4>Choosing the Right Property in YEIDA</h4>
+        <p>Complete guide for investors and buyers.</p>
+      </div>
+
+      <div class="card blog">
+        <img src="https://source.unsplash.com/600x400/?real-estate" />
+        <h4>YEIDA Plot Investment Opportunities</h4>
+        <p>Why Yamuna Expressway is booming.</p>
+      </div>
+
+      <div class="card blog">
+        <img src="https://source.unsplash.com/600x400/?meeting" />
+        <h4>Verified Plots & Legal Safety</h4>
+        <p>How to avoid property fraud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Information</h2>
+
+    <div class="contact">
+      <div>
+        <p><strong>Phone:</strong> +91 90910 10909</p>
+        <p><strong>Address:</strong><br>
+          7th & 8th Floor, Kaison Square Tower,<br>
+          Alpha-1, Greater Noida – 201308
+        </p>
+        <p><strong>Timings:</strong> 9:00 AM – 10:00 PM</p>
+      </div>
+
+      <iframe
+        src="https://www.google.com/maps?q=Kaison%20Square%20Tower%20Greater%20Noida&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <h2>Gallery</h2>
+
+    <div class="gallery">
+      <img src="https://source.unsplash.com/400x400/?office" />
+      <img src="https://source.unsplash.com/400x400/?team" />
+      <img src="https://source.unsplash.com/400x400/?workspace" />
+      <img src="https://source.unsplash.com/400x400/?meeting-room" />
+      <img src="https://source.unsplash.com/400x400/?business" />
+      <img src="https://source.unsplash.com/400x400/?corporate" />
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Shourya Associates Pvt. Ltd. | Powered by Localo
+</footer>
+
+<script>
+  const links = document.querySelectorAll(".nav a");
+
+  window.addEventListener("scroll", () => {
+    let fromTop = window.scrollY + 100;
+
+    links.forEach(link => {
+      let section = document.querySelector(link.getAttribute("href"));
+      if (
+        section.offsetTop <= fromTop &&
+        section.offsetTop + section.offsetHeight > fromTop
+      ) {
+        links.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
