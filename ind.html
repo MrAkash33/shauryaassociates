@@ -450,14 +450,122 @@ h2 { text-align: center; margin-bottom: 20px; }
 
 .card {
   background: var(--card);
-  padding: 24px;
+  padding: 50px;
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0,0,0,.06);
   transition: .3s;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .card:hover { transform: translateY(-6px); }
-.stars { color: #fbbf24; }
+.stars { color: #fbbf24;     text-align: center;
+    font-size: 22px;margin-bottom: 20px;}
+
+
+.hero1{
+  min-height:90vh;
+  /* background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+  url('https://images.unsplash.com/photo-1557296869-e9a76501a0d1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat; */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-align:center;
+  color:#000000;
+}
+
+.hero-content1{
+  max-width:850px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  padding:50px 40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.hero-content1 h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.hero-content1 p{
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:25px;
+  color:#262626;
+}
+
+.hero-content1 h3{
+  font-size:22px;
+  margin-bottom:30px;
+  color:#0d0047;
+}
+
+.hero-buttons2{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn1{
+  padding:14px 30px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  background:linear-gradient(45deg,#ff6a00,#ee0979);
+  color:#fff;
+}
+
+.btn1:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+.btn-light1{
+  background:#fff;
+  color:#333;
+}
+
+.btn-light1:hover{
+  background:#ffd700;
+}
+
+.contact-box{
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  line-height:1.7;
+  max-width:400px;
+}
+
+.contact-box p{
+  margin-bottom:10px;
+}
+
+.business-hours{
+  margin-top:20px;
+}
+
+.business-hours h4{
+  margin-bottom:10px;
+  color:#333;
+}
+
+.business-hours ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.business-hours li{
+  font-size:14px;
+  margin-bottom:6px;
+  color:#555;
+}
   </style>
 </head>
 
@@ -499,6 +607,17 @@ h2 { text-align: center; margin-bottom: 20px; }
   </section>
 
   <!-- STATS -->
+   <section class="hero1">
+      <div class="hero-content1">
+        <h1>Shourya Associates Pvt. Ltd.</h1>
+        <p>
+         Shourya Associates Pvt. Ltd. – Top Real Estate Agents in Greater Noida & YEIDA shourya associates PropWorld Pvt. Ltd. is among the top real estate agents in Greater Noida and YEIDA, known for expert guidance in residential plots, commercial properties, and real estate investment. We are recognized as one of the best real estate agents in YEIDA and Greater Noida for providing verified property options and transparent advisory. Our team assists buyers and investors with property buying, selling, site visits, legal verification, and complete documentation support. We specialize in YEIDA residential plots, commercial projects, and high-growth investment locations near Yamuna Expressway and the upcoming Noida International Airport (Jewar Airport).
+        </p>
+        <h3>+91 74284 52995</h3>
+
+      </div>
+    </section>
+    </div>
   <section class="stats-strip" id="stats">
     <div class="stats-container">
       <div class="stat">
@@ -526,18 +645,39 @@ h2 { text-align: center; margin-bottom: 20px; }
 <h2>Customer Reviews</h2>
 <div class="grid">
   <div class="card">
-    <div class="stars">★★★★★</div>
-    <p>Professional and trustworthy service.</p>
+    <div class="stars">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+    </div>
+    <p>shourya associates Propworld ke sath mera experience bahut achha raha. Team ka behavior professional hai aur unhone mujhe step-by-step proper guidance di. Deal bilkul transparent rahi, koi hidden charge nahi tha. Documentation aur process bhi smooth tha. Agar koi  YEIDA side property lena chahta hai to main shourya associates Propworld ko recommend karunga. 👍
+.</p>
     <strong>– Aryan S</strong>
   </div>
   <div class="card">
-    <div class="stars">★★★★★</div>
-    <p>Smooth and transparent experience.</p>
+    <div class="stars">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+    </div>
+    <p>My experience with Mr. Pawan Mishra from shourya associates Properties has been exceptional. He is an extremely well‑organised, authentic, and trustworthy professional who made my entire property‑purchase journey smooth and stress‑free. From the very beginning, he handled all communication with the seller, managed documentation, and took care of every piece.
+.</p>
     <strong>– Vivek D</strong>
   </div>
   <div class="card">
-    <div class="stars">★★★★★</div>
-    <p>Highly recommended real estate firm.</p>
+    <div class="stars">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" style="width: 25px;"/>
+    </div>
+    <p>shourya associates ke saath mera experience bahut acha raha. Unhone property buy/sell process ko smoothly complete kiya aur har step par proper guidance di. Documentation se leke deal finalize hone tak sab kuch time par aur trust ke saath hua. Agar aapko reliable real estate service chahiye to main ye company zaroor recommend karta hoon.”
+.</p>
     <strong>– Paras</strong>
   </div>
 </div>
@@ -610,11 +750,24 @@ h2 { text-align: center; margin-bottom: 20px; }
     <div class="container">
       <h2>Contact Information</h2>
       <div class="contact">
-        <div class="contact-box">
-          <p><strong>Phone:</strong> +91 74284 52995</p>
-          <p><strong>Address:</strong> O91, Block O, Sector 12, Noida, Uttar Pradesh 2013018</p>
-          <p><strong>Email:</strong> Shouryaassociates2026@gmail.com</p>
+       <div class="contact-box">
+        <p><strong>Phone:</strong> +91 74284 52995</p>
+        <p><strong>Address:</strong> O91, Block O, Sector 12, Noida, Uttar Pradesh 2013018</p>
+        <p><strong>Email:</strong> Shouryaassociates2026@gmail.com</p>
+
+        <div class="business-hours">
+          <h4>Business Hours</h4>
+          <ul>
+            <li>Sunday: 9:00 AM - 10:00 PM</li>
+            <li>Monday: 9:00 AM - 10:00 PM</li>
+            <li>Tuesday: 9:00 AM - 10:00 PM</li>
+            <li>Wednesday: 9:00 AM - 10:00 PM</li>
+            <li>Thursday: 9:00 AM - 10:00 PM</li>
+            <li>Friday: 9:00 AM - 10:00 PM</li>
+            <li>Saturday: 9:00 AM - 10:00 PM</li>
+          </ul>
         </div>
+      </div>
         <iframe src="https://www.google.com/maps?q=Greater%20Noida&output=embed"></iframe>
       </div>
     </div>
@@ -625,6 +778,7 @@ h2 { text-align: center; margin-bottom: 20px; }
     <div class="footer-overlay"></div>
     <div class="footer-content">
       <div>
+        <div class="logo"><img src="assets/final.png" style="width:45px;"></div>
         <h3>Shourya Associates</h3>
         <p>Leading Plot & Real Estate Consultants.</p>
         <div class="social-icons">
